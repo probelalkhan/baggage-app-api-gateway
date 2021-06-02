@@ -1,0 +1,18 @@
+zuul:
+  routes:
+    users:
+      path: /api/userManagement/**
+      # url: http://t3bhsho:7004/userManagement
+      url: http://localhost:8085/userManagement
+    Peripherals:
+      path: /api/peripherals/**
+      url: http://localhost:8085/peripherals
+    flights:
+      path: /api/flights/**
+      url: http://localhost:8085/flights
+    TransportBags:
+      path: /api/transportation/**
+      url: http://localhost:8085/transportation
+    config:
+      path: /api/config/**
+      url: http://localhost:8085/config

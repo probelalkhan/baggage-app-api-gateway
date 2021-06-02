@@ -1,0 +1,36 @@
+package com.siemens.sl.apigateway.controller;
+
+import com.siemens.sl.apigateway.constants.endpoints.Endpoints;
+import com.siemens.sl.apigateway.model.AuthenticationRequest;
+import com.siemens.sl.apigateway.model.LoginResponse;
+import com.siemens.sl.apigateway.model.LogoutResponse;
+import com.siemens.sl.apigateway.services.LoginService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@CrossOrigin(origins = {"http://localhost:4200", "http://localhost:4300"})
+    public class AuthenticationController {
+
+    @Autowired
+    private LoginService loginService;
+
+    private static Logger logger = LogManager.getLogger(AuthenticationController.class);
+
+    @PostMapping(Endpoints.LOGIN)
+    public LoginResponse login(@RequestBody AuthenticationRequest request) {
+        logger.info("Login Req: "+request);
+        LoginResponse loginResponse = loginService.getLoginResponse(request);
+        logger.debug("LOGIN Request successfully processed, returning response");
+        return loginResponse;
+    }
+
+    @PostMapping(Endpoints.LOGOUT)
+    public LogoutResponse logout(String user) {
+        //TODO - WILL BE USED FOR LOGGING ONLY (Most likely)
+        logger.info("Logout Request successfully processed, returning Success Response");
+        return new LogoutResponse(true, 200, 200, "success", user);
+    }
+}

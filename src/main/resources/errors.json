@@ -1,0 +1,192 @@
+[
+  {
+    "lng": "en",
+    "errors": [
+      {
+        "code": 400,
+        "subCode": 1,
+        "subCodeDetail": "version_rejected",
+        "errorTitle": "The oauth_version parameter does not correspond to the “1.0” value",
+        "errorDescription": "The oauth_version parameter does not correspond to the “1.0” value"
+      },
+      {
+        "code": 400,
+        "subCode": 2,
+        "subCodeDetail": "parameter_absent",
+        "errorTitle": "A required parameter is missing in the request. The name of the missing parameter is specified additionally in the response.",
+        "errorDescription": "A required parameter is missing in the request. The name of the missing parameter is specified additionally in the response."
+      },
+      {
+        "code": 400,
+        "subCode": 3,
+        "subCodeDetail": "parameter_rejected",
+        "errorTitle": "The type of the parameter or its value do not meet the protocol requirements (for example, array is passed instead of the string).",
+        "errorDescription": "The type of the parameter or its value do not meet the protocol requirements (for example, array is passed instead of the string)."
+      },
+      {
+        "code": 400,
+        "subCode": 4,
+        "subCodeDetail": "timestamp_refused",
+        "errorTitle": "The timestamp value in the oauth_timestamp parameter is incorrect.",
+        "errorDescription": "The timestamp value in the oauth_timestamp parameter is incorrect."
+      },
+      {
+        "code": 401,
+        "subCode": 5,
+        "subCodeDetail": "nonce_used",
+        "errorTitle": "The nonce-timestamp combination has already been used.",
+        "errorDescription": "The nonce-timestamp combination has already been used."
+      },
+      {
+        "code": 400,
+        "subCode": 6,
+        "subCodeDetail": "signature_method_rejected",
+        "errorTitle": "The signature method is not supported. The following methods are supported: HMAC-SHA1.",
+        "errorDescription": "The signature method is not supported. The following methods are supported: HMAC-SHA1."
+      },
+      {
+        "code": 401,
+        "subCode": 7,
+        "subCodeDetail": "signature_invalid",
+        "errorTitle": "The signature is invalid.",
+        "errorDescription": "The signature is invalid."
+      },
+      {
+        "code": 401,
+        "subCode": 8,
+        "subCodeDetail": "consumer_key_rejected",
+        "errorTitle": "The Consumer Key has incorrect length or does not exist.",
+        "errorDescription": "The Consumer Key has incorrect length or does not exist."
+      },
+      {
+        "code": 401,
+        "subCode": 9,
+        "subCodeDetail": "token_used",
+        "errorTitle": "An attempt of authorization of an already authorized token or an attempt to exchange a not temporary token for a permanent one.",
+        "errorDescription": "An attempt of authorization of an already authorized token or an attempt to exchange a not temporary token for a permanent one."
+      },
+      {
+        "code": 401,
+        "subCode": 10,
+        "subCodeDetail": "access_token_expired",
+        "errorTitle": "The access token has expired.",
+        "errorDescription": "The access token has expired."
+      },
+      {
+        "code": 401,
+        "subCode": 11,
+        "subCodeDetail": "token_revoke",
+        "errorTitle": "The token is revoked by the user who authorized it.",
+        "errorDescription": "The token is revoked by the user who authorized it."
+      },
+      {
+        "code": 401,
+        "subCode": 12,
+        "subCodeDetail": "token_rejected",
+        "errorTitle": "The token is not valid, or does not exist, or is not valid for using in the current type of request.",
+        "errorDescription": "The token is not valid, or does not exist, or is not valid for using in the current type of request."
+      },
+      {
+        "code": 401,
+        "subCode": 13,
+        "subCodeDetail": "verifier_invalid",
+        "errorTitle": "The confirmation string does not correspond to the token.",
+        "errorDescription": "The confirmation string does not correspond to the token."
+      },
+      {
+        "code": 403,
+        "subCode": 14,
+        "subCodeDetail": "permission_unknown",
+        "errorTitle": "The consumer permission is unknown.",
+        "errorDescription": "The consumer permission is unknown."
+      },
+      {
+        "code": 403,
+        "subCode": 15,
+        "subCodeDetail": "permission_denied",
+        "errorTitle": "The consumer does not authorized to access the resource.",
+        "errorDescription": "The consumer does not authorized to access the resource."
+      },
+      {
+        "code": 405,
+        "subCode": 16,
+        "subCodeDetail": "method_not_allowed",
+        "errorTitle": "The method is not supported or not allowed.",
+        "errorDescription": "The method is not supported or not allowed."
+      },
+      {
+        "code": 403,
+        "subCode": 17,
+        "subCodeDetail": "consumer_key_invalid",
+        "errorTitle": "The Consumer Key is invalid.",
+        "errorDescription": "The Consumer Key is invalid."
+      },
+      {
+        "code": 401,
+        "subCode": 18,
+        "subCodeDetail": "invalid_client",
+        "errorTitle": "The client ID passed is invalid.",
+        "errorDescription": "The client ID passed is invalid"
+      },
+      {
+        "code": 401,
+        "subCode": 19,
+        "subCodeDetail": "refresh_token_expired",
+        "errorTitle": "The refresh token has expired. ",
+        "errorDescription": "The refresh token has expired. "
+      },
+      {
+        "code": 401,
+        "subCode": 20,
+        "subCodeDetail": "invalid_client",
+        "errorTitle": "The password for the username is invalid.",
+        "errorDescription": "The password for the username is invalid."
+      },
+      {
+        "code": 401,
+        "subCode": 21,
+        "subCodeDetail": "sessions_exceeded",
+        "errorTitle": "Maximum allowed sessions exceeded",
+        "errorDescription": "The maximum allowed sessions for the user has been reached, \nPlease logout from other devices in order to continue or contact administrator"
+      },
+      {
+        "code": 400,
+        "subCode": 22,
+        "subCodeDetail": "bad_request",
+        "errorTitle": "Device imei not found to be a registered user, please re-authenticate",
+        "errorDescription": "Device imei not found to be a registered user, please re-authenticate"
+      },
+      {
+        "code": 400,
+        "subCode": 23,
+        "subCodeDetail": "bad_request",
+        "errorTitle": "Device imei sent is not valid",
+        "errorDescription": "Device imei sent is not valid"
+      },
+      {
+        "code": 400,
+        "subCode": 24,
+        "subCodeDetail": "bad_request",
+        "errorTitle": "Channel is not valid",
+        "errorDescription": "Channel is not valid, supported channels are WEB and ANDROID"
+      },
+      {
+        "code": 500,
+        "subCode": 1,
+        "subCodeDetail": "internal_server_error",
+        "errorTitle": "Invalid configuration",
+        "errorDescription": "Invalid configuration"
+      },
+      {
+        "code": 500,
+        "subCode": 2,
+        "subCodeDetail": "internal_server_error",
+        "errorTitle": "Unexpected error occurred",
+        "errorDescription": "Unexpected error occurred"
+      }
+    ]
+  }
+]
+
+
+

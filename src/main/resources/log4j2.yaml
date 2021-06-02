@@ -1,0 +1,76 @@
+Configuration:
+  status: warn
+  name: YAMLConfig
+  Properties:
+    property:
+        - name: patternKey
+          value: "%highlight{%d :: %-27t :: %-5p :: {%-25c{1}:%25M():%4L} :: %m%n}{FATAL=red blink, ERROR=red, WARN=yellow bold, INFO=black, DEBUG=green bold, TRACE=blue}"
+        - name: rootPath
+          value: ../logs/BHSMobileApplication/API_gateway_logs
+  appenders:
+    Console:
+      name: console
+      PatternLayout:
+        Pattern: ${patternKey}
+        disableAnsi: false
+    RollingFile:
+      - name: errorLogs
+        fileName: ${rootPath}/mScada_APIGateway_errors_logs.log
+        filePattern: ${rootPath}/$${date:yyyy-MM}/mScada_APIGateway_errors_logs-%d{MM-dd-yyyy}-%i.log.gz
+        PatternLayout:
+          Pattern: ${patternKey}
+        Policies:
+          OnStartupTriggeringPolicy: {}
+          SizeBasedTriggeringPolicy:
+            size: 10 MB
+          TimeBasedTriggeringPolicy:
+            interval: 1
+            modulate: true
+        DefaultRolloverStrategy:
+          max: 1000
+          Delete:
+            basePath: ${rootPath}
+            maxDepth: 2
+            IfFileName:
+              glob: "*/mScada_APIGateway_errors_logs-*.log.gz"
+            IfLastModified:
+              age: 30d
+
+      - name: absoluteLogs
+        fileName: ${rootPath}/mScada_APIGateway_absolute_logs.log
+        filePattern: ${rootPath}/$${date:yyyy-MM}/mScada_APIGateway_absolute_logs-%d{MM-dd-yyyy}-%i.log.gz
+        PatternLayout:
+          Pattern: ${patternKey}
+        Policies:
+          OnStartupTriggeringPolicy: {}
+          SizeBasedTriggeringPolicy:
+            size: 10 MB
+          TimeBasedTriggeringPolicy:
+            interval: 1
+            modulate: true
+        DefaultRolloverStrategy:
+          max: 1000
+          Delete:
+            basePath: ${rootPath}
+            maxDepth: 2
+            IfFileName:
+              glob: "*/mScada_APIGateway_absolute_logs-*.log.gz"
+            IfLastModified:
+              age: 30d
+  Loggers:
+    logger:
+      name: com.siemens.sl.apigateway
+      additivity: false
+      level: all
+      AppenderRef:
+        - ref: absoluteLogs
+          level: all
+        - ref: errorLogs
+          level: error
+        - ref: console
+          level: all
+
+    Root:
+      AppenderRef:
+        ref: console
+        level: all
