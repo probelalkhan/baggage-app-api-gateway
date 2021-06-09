@@ -1,5 +1,6 @@
 package com.siemens.sl.apigateway.services;
 
+import com.siemens.sl.apigateway.model.AddUserRequest;
 import com.siemens.sl.apigateway.model.GetUserResponse;
 import com.siemens.sl.apigateway.model.User;
 import com.siemens.sl.apigateway.retrofit.RemoteServices;
@@ -25,6 +26,22 @@ public class UserService {
                     response.body() != null &&
                     response.body().getData() != null) {
                 return response.body().getData();
+            } else {
+                logger.error("Get user service failed");
+            }
+
+        } catch (Exception e) {
+            logger.error("Get user service failed (Exception thrown)");
+        }
+        return null;
+    }
+
+    public AddUserRequest addUser(AddUserRequest request){
+        try {
+            Response<AddUserRequest> response = remoteServices.addUser(request).execute();
+            if (response.isSuccessful() &&
+                    response.body() != null) {
+                return response.body();
             } else {
                 logger.error("Get user service failed");
             }

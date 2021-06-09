@@ -1,10 +1,12 @@
 package com.siemens.sl.apigateway.controller;
 
 import com.siemens.sl.apigateway.constants.endpoints.Endpoints;
+import com.siemens.sl.apigateway.model.AddUserRequest;
 import com.siemens.sl.apigateway.model.AuthenticationRequest;
 import com.siemens.sl.apigateway.model.LoginResponse;
 import com.siemens.sl.apigateway.model.LogoutResponse;
 import com.siemens.sl.apigateway.services.LoginService;
+import com.siemens.sl.apigateway.services.UserService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,9 @@ import org.springframework.web.bind.annotation.*;
 
     @Autowired
     private LoginService loginService;
+
+    @Autowired
+    private UserService userService;
 
     private static Logger logger = LogManager.getLogger(AuthenticationController.class);
 
@@ -32,5 +37,11 @@ import org.springframework.web.bind.annotation.*;
         //TODO - WILL BE USED FOR LOGGING ONLY (Most likely)
         logger.info("Logout Request successfully processed, returning Success Response");
         return new LogoutResponse(true, 200, 200, "success", user);
+    }
+
+    @PostMapping(Endpoints.ADD_USER)
+    public AddUserRequest addUser(@RequestBody AddUserRequest request){
+        logger.info("Add user Called " + request);
+        return userService.addUser(request);
     }
 }
