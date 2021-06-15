@@ -12,6 +12,8 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin(origins = {"http://localhost:4200", "http://localhost:4300"})
     public class AuthenticationController {
@@ -43,5 +45,11 @@ import org.springframework.web.bind.annotation.*;
     public AddUserRequest addUser(@RequestBody AddUserRequest request){
         logger.info("Add user Called " + request);
         return userService.addUser(request);
+    }
+
+    @GetMapping(Endpoints.USERS)
+    public List<AddUserRequest> users(){
+        logger.info("users Called ");
+        return userService.getAllUsers();
     }
 }

@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import retrofit2.Response;
 
+import java.util.List;
+
 @Service
 public class UserService {
 
@@ -19,7 +21,7 @@ public class UserService {
     private static Logger logger = LogManager.getLogger(UserService.class);
 
     public User getUser(String username) {
-        logger.info("Inside getUser in UserService class of API gateway " +username);
+        logger.info("Inside getUser in UserService class of API gateway " + username);
         try {
             Response<GetUserResponse> response = remoteServices.getUser(username).execute();
             if (response.isSuccessful() &&
@@ -36,7 +38,7 @@ public class UserService {
         return null;
     }
 
-    public AddUserRequest addUser(AddUserRequest request){
+    public AddUserRequest addUser(AddUserRequest request) {
         try {
             Response<AddUserRequest> response = remoteServices.addUser(request).execute();
             if (response.isSuccessful() &&
@@ -46,6 +48,21 @@ public class UserService {
                 logger.error("Get user service failed");
             }
 
+        } catch (Exception e) {
+            logger.error("Get user service failed (Exception thrown)");
+        }
+        return null;
+    }
+
+    public List<AddUserRequest> getAllUsers() {
+        try {
+            Response<List<AddUserRequest>> response = remoteServices.getAllUsers().execute();
+            if (response.isSuccessful() &&
+                    response.body() != null) {
+                return response.body();
+            } else {
+                logger.error("Get user service failed");
+            }
         } catch (Exception e) {
             logger.error("Get user service failed (Exception thrown)");
         }
