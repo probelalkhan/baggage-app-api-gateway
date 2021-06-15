@@ -1,10 +1,7 @@
 package com.siemens.sl.apigateway.controller;
 
 import com.siemens.sl.apigateway.constants.endpoints.Endpoints;
-import com.siemens.sl.apigateway.model.AddUserRequest;
-import com.siemens.sl.apigateway.model.AuthenticationRequest;
-import com.siemens.sl.apigateway.model.LoginResponse;
-import com.siemens.sl.apigateway.model.LogoutResponse;
+import com.siemens.sl.apigateway.model.*;
 import com.siemens.sl.apigateway.services.LoginService;
 import com.siemens.sl.apigateway.services.UserService;
 import org.apache.logging.log4j.LogManager;
@@ -48,7 +45,7 @@ import java.util.List;
     }
 
     @GetMapping(Endpoints.USERS)
-    public List<AddUserRequest> users(){
+    public List<UserTable> users(){
         logger.info("users Called ");
         return userService.getAllUsers();
     }
