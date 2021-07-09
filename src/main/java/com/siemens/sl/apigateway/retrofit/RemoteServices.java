@@ -3,6 +3,7 @@ package com.siemens.sl.apigateway.retrofit;
 import com.siemens.sl.apigateway.model.AddUserRequest;
 import com.siemens.sl.apigateway.model.GetUserResponse;
 import com.siemens.sl.apigateway.model.UserTable;
+import com.siemens.sl.apigateway.model.v1.User;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -20,6 +21,6 @@ public interface RemoteServices {
     Call<AddUserRequest> addUser(@Body AddUserRequest request);
 
     @POST("/api-gateway-request/users")
-    Call<List<UserTable>> getAllUsers();
+    Call<List<User>> getAllUsers();
 
 }
