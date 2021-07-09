@@ -3,7 +3,6 @@ package com.siemens.sl.apigateway.services;
 import com.siemens.sl.apigateway.model.AddUserRequest;
 import com.siemens.sl.apigateway.model.GetUserResponse;
 import com.siemens.sl.apigateway.model.User;
-import com.siemens.sl.apigateway.model.UserTable;
 import com.siemens.sl.apigateway.retrofit.RemoteServices;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -56,9 +55,9 @@ public class UserService {
         return null;
     }
 
-    public List<UserTable> getAllUsers() {
+    public List<com.siemens.sl.apigateway.model.v1.User> getAllUsers() {
         try {
-            Response<List<UserTable>> response = remoteServices.getAllUsers().execute();
+            Response<List<com.siemens.sl.apigateway.model.v1.User>> response = remoteServices.getAllUsers().execute();
             if (response.isSuccessful() &&
                     response.body() != null) {
                 return response.body();
