@@ -34,6 +34,7 @@ public class UserService {
             }
 
         } catch (Exception e) {
+            logger.error(e.getMessage());
             logger.error("Get user service failed (Exception thrown)");
         }
         return null;
@@ -65,6 +66,7 @@ public class UserService {
                 logger.error("Get user service failed");
             }
         } catch (Exception e) {
+            logger.error(e.getMessage());
             logger.error("Get user service failed (Exception thrown)");
         }
         return null;

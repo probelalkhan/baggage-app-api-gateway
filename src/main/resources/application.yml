@@ -4,15 +4,20 @@ zuul:
       path: /api/userManagement/**
       # url: http://t3bhsho:7004/userManagement
       url: http://localhost:8085/userManagement
+      #url: http://172.18.170.30:7004/userManagement
     Peripherals:
       path: /api/peripherals/**
       url: http://localhost:8085/peripherals
+     # url: http://172.18.170.30:7004/peripherals
     flights:
       path: /api/flights/**
       url: http://localhost:8085/flights
+     # url: http://172.18.170.30:7004/flights
     TransportBags:
       path: /api/transportation/**
       url: http://localhost:8085/transportation
+      #url: http://172.18.170.30:7004/transportation
     config:
       path: /api/config/**
+      #url: http://172.18.170.30:7004/config
       url: http://localhost:8085/config

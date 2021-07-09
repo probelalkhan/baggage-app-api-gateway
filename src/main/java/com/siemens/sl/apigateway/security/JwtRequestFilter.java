@@ -72,7 +72,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 
         Enumeration<String> headerNames = request.getHeaderNames();
         final String requestTokenHeader = request.getHeader("Authorization");
-
+        logger.error("requestTokenHeader  "  + requestTokenHeader);
         if (requestTokenHeader == null) {
             //The request does not contain any token
             code = 400;

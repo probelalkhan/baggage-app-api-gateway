@@ -13,13 +13,16 @@ import java.util.List;
 
 public interface RemoteServices {
 
+    //@GET("/um-service/api-gateway-request/getUser/{username}")
     @GET("/api-gateway-request/getUser/{username}")
     Call<GetUserResponse> getUser(@Path("username") String username);
 
+    //@POST("/um-service/api-gateway-request/adduser")
     @POST("/api-gateway-request/adduser")
     Call<AddUserRequest> addUser(@Body AddUserRequest request);
 
-    @POST("/api-gateway-request/users")
+    //@GET("/um-service/api-gateway-request/users")
+    @GET("/api-gateway-request/users")
     Call<List<UserTable>> getAllUsers();
 
 }
