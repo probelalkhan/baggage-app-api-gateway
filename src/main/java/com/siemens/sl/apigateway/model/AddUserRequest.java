@@ -2,13 +2,16 @@ package com.siemens.sl.apigateway.model;
 
 import lombok.Data;
 
+import java.util.Date;
+
 @Data
 public class AddUserRequest {
-    private String userName;
-    private String emailId;
-    private String firstName;
-    private String lastName;
-    private long mobile;
-    private char active;
-    private String userPassword;
+    private String name;
+    private String description;
+    private String department;
+    private long role_id;
+    private String password;
+    private Date password_expires_on;
+    private boolean locked;
+    private Date account_expires_on;
 }
