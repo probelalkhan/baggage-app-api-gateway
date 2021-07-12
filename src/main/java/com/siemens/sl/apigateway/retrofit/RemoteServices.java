@@ -20,7 +20,7 @@ public interface RemoteServices {
     @POST("/api-gateway-request/adduser")
     Call<AddUserRequest> addUser(@Body AddUserRequest request);
 
-    @POST("/api-gateway-request/users")
+    @GET("/api-gateway-request/users")
     Call<List<User>> getAllUsers();
 
 }

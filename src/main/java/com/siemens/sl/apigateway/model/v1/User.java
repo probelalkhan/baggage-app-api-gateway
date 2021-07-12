@@ -12,7 +12,7 @@ public class User {
     private String department;
     private long role_id;
     private String password;
-    private Date password_expires_on;
+    private String password_expires_on;
     private boolean locked;
-    private Date account_expires_on;
+    private String account_expires_on;
 }
