@@ -7,6 +7,7 @@ import com.siemens.sl.apigateway.retrofit.RemoteServices;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import retrofit2.Response;
 
@@ -41,6 +42,8 @@ public class UserService {
 
     public AddUserRequest addUser(AddUserRequest request) {
         try {
+            BCryptPasswordEncoder bs = new BCryptPasswordEncoder();
+            request.setPassword(bs.encode(request.getPassword()));
             Response<AddUserRequest> response = remoteServices.addUser(request).execute();
             if (response.isSuccessful() &&
                     response.body() != null) {
@@ -62,6 +65,8 @@ public class UserService {
                     response.body() != null) {
                 return response.body();
             } else {
+                logger.error(response.body().toString());
+                logger.error(response.errorBody().string());
                 logger.error("Get user service failed");
             }
         } catch (Exception e) {
