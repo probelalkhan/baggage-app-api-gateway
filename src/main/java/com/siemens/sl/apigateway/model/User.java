@@ -3,7 +3,7 @@ package com.siemens.sl.apigateway.model;
 import lombok.Data;
 
 import java.util.List;
-
+@Deprecated
 @Data
 public class User {
     private Integer id;

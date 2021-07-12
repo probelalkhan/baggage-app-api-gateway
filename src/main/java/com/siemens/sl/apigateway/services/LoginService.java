@@ -4,7 +4,7 @@ import com.siemens.sl.apigateway.exception.customexceptions.GenericException;
 import com.siemens.sl.apigateway.model.AuthenticationRequest;
 import com.siemens.sl.apigateway.model.AuthenticationResponseData;
 import com.siemens.sl.apigateway.model.LoginResponse;
-import com.siemens.sl.apigateway.model.User;
+import com.siemens.sl.apigateway.model.v1.User;
 import com.siemens.sl.apigateway.utility.JwtTokenUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

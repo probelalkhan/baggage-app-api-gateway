@@ -2,7 +2,7 @@ package com.siemens.sl.apigateway.services;
 
 import com.siemens.sl.apigateway.model.AddUserRequest;
 import com.siemens.sl.apigateway.model.GetUserResponse;
-import com.siemens.sl.apigateway.model.User;
+import com.siemens.sl.apigateway.model.v1.User;
 import com.siemens.sl.apigateway.retrofit.RemoteServices;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
