@@ -2,6 +2,7 @@ package com.siemens.sl.apigateway.controller;
 
 import com.siemens.sl.apigateway.constants.endpoints.Endpoints;
 import com.siemens.sl.apigateway.model.*;
+import com.siemens.sl.apigateway.model.v1.Group;
 import com.siemens.sl.apigateway.model.v1.User;
 import com.siemens.sl.apigateway.services.LoginService;
 import com.siemens.sl.apigateway.services.UserService;
@@ -50,5 +51,10 @@ import java.util.List;
     public List<User> users(){
         logger.info("users Called ");
         return userService.getAllUsers();
+    }
+
+    @PostMapping(Endpoints.ADD_GROUP)
+    public Group addGroup(@RequestBody Group group){
+        return userService.addGroup(group);
     }
 }

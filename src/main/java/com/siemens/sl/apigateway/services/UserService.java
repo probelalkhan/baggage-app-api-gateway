@@ -3,6 +3,7 @@ package com.siemens.sl.apigateway.services;
 import com.siemens.sl.apigateway.model.AddUserRequest;
 import com.siemens.sl.apigateway.model.GetUserResponse;
 import com.siemens.sl.apigateway.model.User;
+import com.siemens.sl.apigateway.model.v1.Group;
 import com.siemens.sl.apigateway.retrofit.RemoteServices;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -45,6 +46,22 @@ public class UserService {
             BCryptPasswordEncoder bs = new BCryptPasswordEncoder();
             request.setPassword(bs.encode(request.getPassword()));
             Response<AddUserRequest> response = remoteServices.addUser(request).execute();
+            if (response.isSuccessful() &&
+                    response.body() != null) {
+                return response.body();
+            } else {
+                logger.error("Get user service failed");
+            }
+
+        } catch (Exception e) {
+            logger.error("Get user service failed (Exception thrown)");
+        }
+        return null;
+    }
+
+    public Group addGroup(Group request) {
+        try {
+            Response<Group> response = remoteServices.addGroup(request).execute();
             if (response.isSuccessful() &&
                     response.body() != null) {
                 return response.body();
