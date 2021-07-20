@@ -9,5 +9,5 @@ public class GetUserResponse {
     private int subCode;
     private String subCodeDetail;
     private String timeStamp;
-    private User data;
+    private com.siemens.sl.apigateway.model.v1.User data;
 }

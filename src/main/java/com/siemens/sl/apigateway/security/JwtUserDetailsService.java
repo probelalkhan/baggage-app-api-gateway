@@ -2,7 +2,7 @@ package com.siemens.sl.apigateway.security;
 
 import com.siemens.sl.apigateway.controller.AuthenticationController;
 import com.siemens.sl.apigateway.model.Role;
-import com.siemens.sl.apigateway.model.User;
+import com.siemens.sl.apigateway.model.v1.User;
 import com.siemens.sl.apigateway.services.UserService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -33,13 +33,13 @@ public class JwtUserDetailsService implements UserDetailsService {
             logger.error("User with name: " + username + " not found, throwing UsernameNotFoundException");
             throw new UsernameNotFoundException("Invalid user");
         }
-
+/*
         if (user.getRoles() != null) {
             for (Role role : user.getRoles()) {
                 authorities.add(new SimpleGrantedAuthority("ROLE_" + role.getName()));
             }
-        }
+        } */
 
-        return new org.springframework.security.core.userdetails.User(user.getUserName(), user.getPassword(), authorities);
+        return new org.springframework.security.core.userdetails.User(user.getName(), user.getPassword(), authorities);
     }
 }

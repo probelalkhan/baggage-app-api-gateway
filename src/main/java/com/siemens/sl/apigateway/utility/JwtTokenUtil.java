@@ -1,7 +1,7 @@
 package com.siemens.sl.apigateway.utility;
 
 import com.siemens.sl.apigateway.exception.customexceptions.GenericException;
-import com.siemens.sl.apigateway.model.User;
+import com.siemens.sl.apigateway.model.v1.User;
 import io.jsonwebtoken.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -67,7 +67,7 @@ public class JwtTokenUtil {
     public String generateAccessToken(User user) {
         Map<String, Object> claims = new HashMap<>();
         addClaims(user, claims);
-        return doGenerateToken(claims, user.getUserName());
+        return doGenerateToken(claims, user.getName());
     }
 
 //    /**
@@ -90,9 +90,10 @@ public class JwtTokenUtil {
      */
     private void addClaims(User user, Map<String, Object> claims) {
         //TODO - HOW TO ADD, CHECK IF WE CAN REMOVE IT
-        if (user.getRoles() != null && user.getRoles().length > 0) {
+        /*if (user.getRoles() != null && user.getRoles().length > 0) {
             claims.put("role", user.getRoles()[0].getName());
         }
+        */
     }
 
     /**
