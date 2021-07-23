@@ -57,4 +57,9 @@ import java.util.List;
     public Group addGroup(@RequestBody Group group){
         return userService.addGroup(group);
     }
+
+    @GetMapping(Endpoints.GROUPS)
+    public List<Group> addGroup(){
+        return userService.getAllGroups();
+    }
 }

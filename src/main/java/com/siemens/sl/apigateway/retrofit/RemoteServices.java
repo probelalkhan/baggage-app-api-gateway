@@ -27,4 +27,7 @@ public interface RemoteServices {
     @POST("/api-gateway-request/addgroup")
     Call<Group> addGroup(@Body Group group);
 
+    @GET("/api-gateway-request/groups")
+    Call<List<Group>> getAllGroups();
+
 }
