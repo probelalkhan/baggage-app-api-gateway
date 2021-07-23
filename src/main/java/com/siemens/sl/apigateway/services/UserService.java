@@ -2,12 +2,8 @@ package com.siemens.sl.apigateway.services;
 
 import com.siemens.sl.apigateway.model.AddUserRequest;
 import com.siemens.sl.apigateway.model.GetUserResponse;
-<<<<<<< HEAD
-import com.siemens.sl.apigateway.model.User;
-import com.siemens.sl.apigateway.model.v1.Group;
-=======
 import com.siemens.sl.apigateway.model.v1.User;
->>>>>>> 27d324f9974c4609e2528124156991f5a4051d02
+import com.siemens.sl.apigateway.model.v1.Group;
 import com.siemens.sl.apigateway.retrofit.RemoteServices;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
