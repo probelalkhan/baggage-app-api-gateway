@@ -8,7 +8,8 @@ public interface Endpoints {
             Endpoints.ADD_USER,
             Endpoints.USERS,
             Endpoints.ADD_GROUP,
-            Endpoints.GROUPS
+            Endpoints.GROUPS,
+            Endpoints.UPDATE_PASSWORD
     };
 
     String LOGIN = "/api/crc/login";
@@ -17,6 +18,7 @@ public interface Endpoints {
     String USERS = "/api/crc/users";
     String ADD_GROUP = "/api/crc/addgroup";
     String GROUPS = "/api/crc/groups";
+    String UPDATE_PASSWORD = "/api/crc/updatepassword";
 
     String USER_MANAGEMENT_PATTERN = "/api/userManagement/**";
 }

@@ -59,6 +59,24 @@ public class UserService {
         return null;
     }
 
+    public AddUserRequest updatePassword(AddUserRequest request){
+        try {
+            BCryptPasswordEncoder bs = new BCryptPasswordEncoder();
+            request.setPassword(bs.encode(request.getPassword()));
+            Response<AddUserRequest> response = remoteServices.updatePassword(request).execute();
+            if (response.isSuccessful() &&
+                    response.body() != null) {
+                return response.body();
+            } else {
+                logger.error("Update password service failed");
+            }
+
+        } catch (Exception e) {
+            logger.error("Update password service failed (Exception thrown)");
+        }
+        return null;
+    }
+
     public Group addGroup(Group request) {
         try {
             Response<Group> response = remoteServices.addGroup(request).execute();
