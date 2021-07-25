@@ -62,4 +62,9 @@ import java.util.List;
     public List<Group> addGroup(){
         return userService.getAllGroups();
     }
+
+    @PostMapping(Endpoints.UPDATE_PASSWORD)
+    public AddUserRequest updatePassword(@RequestBody AddUserRequest request){
+        return userService.updatePassword(request);
+    }
 }

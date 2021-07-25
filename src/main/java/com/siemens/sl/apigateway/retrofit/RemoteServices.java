@@ -21,6 +21,9 @@ public interface RemoteServices {
     @POST("/api-gateway-request/adduser")
     Call<AddUserRequest> addUser(@Body AddUserRequest request);
 
+    @POST("/api-gateway-request/updatepassword")
+    Call<AddUserRequest> updatePassword(@Body AddUserRequest request);
+
     @GET("/api-gateway-request/users")
     Call<List<User>> getAllUsers();
 
