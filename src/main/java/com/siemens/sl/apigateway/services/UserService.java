@@ -2,6 +2,7 @@ package com.siemens.sl.apigateway.services;
 
 import com.siemens.sl.apigateway.model.AddUserRequest;
 import com.siemens.sl.apigateway.model.GetUserResponse;
+import com.siemens.sl.apigateway.model.v1.ChangePasswordRequest;
 import com.siemens.sl.apigateway.model.v1.Group;
 import com.siemens.sl.apigateway.model.v1.User;
 import com.siemens.sl.apigateway.retrofit.RemoteServices;
@@ -59,10 +60,10 @@ public class UserService {
         return null;
     }
 
-    public AddUserRequest updatePassword(AddUserRequest request){
+    public AddUserRequest updatePassword(ChangePasswordRequest request){
         try {
             BCryptPasswordEncoder bs = new BCryptPasswordEncoder();
-            request.setPassword(bs.encode(request.getPassword()));
+            request.setNewPassword(bs.encode(request.getNewPassword()));
             Response<AddUserRequest> response = remoteServices.updatePassword(request).execute();
             if (response.isSuccessful() &&
                     response.body() != null) {
