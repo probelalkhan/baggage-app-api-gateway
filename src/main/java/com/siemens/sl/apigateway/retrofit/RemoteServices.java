@@ -15,22 +15,22 @@ import java.util.List;
 
 public interface RemoteServices {
 
-    @GET("/api-gateway-request/getUser/{username}")
+    @GET("/um-service/api-gateway-request/getUser/{username}")
     Call<GetUserResponse> getUser(@Path("username") String username);
 
-    @POST("/api-gateway-request/adduser")
+    @POST("/um-service/api-gateway-request/adduser")
     Call<AddUserRequest> addUser(@Body AddUserRequest request);
 
-    @POST("/api-gateway-request/updatepassword")
+    @POST("/um-service/api-gateway-request/updatepassword")
     Call<AddUserRequest> updatePassword(@Body AddUserRequest request);
 
-    @GET("/api-gateway-request/users")
+    @GET("/um-service/api-gateway-request/users")
     Call<List<User>> getAllUsers();
 
-    @POST("/api-gateway-request/addgroup")
+    @POST("/um-service/api-gateway-request/addgroup")
     Call<Group> addGroup(@Body Group group);
 
-    @GET("/api-gateway-request/groups")
+    @GET("/um-service/api-gateway-request/groups")
     Call<List<Group>> getAllGroups();
 
 }
