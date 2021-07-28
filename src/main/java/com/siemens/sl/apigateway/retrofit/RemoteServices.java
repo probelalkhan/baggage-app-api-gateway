@@ -3,6 +3,7 @@ package com.siemens.sl.apigateway.retrofit;
 import com.siemens.sl.apigateway.model.AddUserRequest;
 import com.siemens.sl.apigateway.model.GetUserResponse;
 import com.siemens.sl.apigateway.model.UserTable;
+import com.siemens.sl.apigateway.model.v1.ChangePasswordRequest;
 import com.siemens.sl.apigateway.model.v1.Group;
 import com.siemens.sl.apigateway.model.v1.User;
 import retrofit2.Call;
@@ -15,22 +16,22 @@ import java.util.List;
 
 public interface RemoteServices {
 
-    @GET("/um-service/api-gateway-request/getUser/{username}")
+    @GET("/api-gateway-request/getUser/{username}")
     Call<GetUserResponse> getUser(@Path("username") String username);
 
-    @POST("/um-service/api-gateway-request/adduser")
+    @POST("/api-gateway-request/adduser")
     Call<AddUserRequest> addUser(@Body AddUserRequest request);
 
-    @POST("/um-service/api-gateway-request/updatepassword")
-    Call<AddUserRequest> updatePassword(@Body AddUserRequest request);
+    @POST("/api-gateway-request/updatepassword")
+    Call<AddUserRequest> updatePassword(@Body ChangePasswordRequest request);
 
-    @GET("/um-service/api-gateway-request/users")
+    @GET("/api-gateway-request/users")
     Call<List<User>> getAllUsers();
 
-    @POST("/um-service/api-gateway-request/addgroup")
+    @POST("/api-gateway-request/addgroup")
     Call<Group> addGroup(@Body Group group);
 
-    @GET("/um-service/api-gateway-request/groups")
+    @GET("/api-gateway-request/groups")
     Call<List<Group>> getAllGroups();
 
 }
