@@ -3,6 +3,7 @@ package com.siemens.sl.apigateway.services;
 import com.siemens.sl.apigateway.model.AddUserRequest;
 import com.siemens.sl.apigateway.model.GetUserResponse;
 import com.siemens.sl.apigateway.model.v1.ChangePasswordRequest;
+import com.siemens.sl.apigateway.model.v1.DefaultResponse;
 import com.siemens.sl.apigateway.model.v1.Group;
 import com.siemens.sl.apigateway.model.v1.User;
 import com.siemens.sl.apigateway.retrofit.RemoteServices;
@@ -60,18 +61,17 @@ public class UserService {
         return null;
     }
 
-    public AddUserRequest updatePassword(ChangePasswordRequest request){
+    public DefaultResponse updatePassword(ChangePasswordRequest request) {
         try {
             BCryptPasswordEncoder bs = new BCryptPasswordEncoder();
             request.setNewPassword(bs.encode(request.getNewPassword()));
-            Response<AddUserRequest> response = remoteServices.updatePassword(request).execute();
+            Response<DefaultResponse> response = remoteServices.updatePassword(request).execute();
             if (response.isSuccessful() &&
                     response.body() != null) {
                 return response.body();
             } else {
                 logger.error("Update password service failed");
             }
-
         } catch (Exception e) {
             logger.error("Update password service failed (Exception thrown)");
         }

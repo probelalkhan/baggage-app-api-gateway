@@ -4,6 +4,7 @@ import com.siemens.sl.apigateway.model.AddUserRequest;
 import com.siemens.sl.apigateway.model.GetUserResponse;
 import com.siemens.sl.apigateway.model.UserTable;
 import com.siemens.sl.apigateway.model.v1.ChangePasswordRequest;
+import com.siemens.sl.apigateway.model.v1.DefaultResponse;
 import com.siemens.sl.apigateway.model.v1.Group;
 import com.siemens.sl.apigateway.model.v1.User;
 import retrofit2.Call;
@@ -23,7 +24,7 @@ public interface RemoteServices {
     Call<AddUserRequest> addUser(@Body AddUserRequest request);
 
     @POST("/api-gateway-request/updatepassword")
-    Call<AddUserRequest> updatePassword(@Body ChangePasswordRequest request);
+    Call<DefaultResponse> updatePassword(@Body ChangePasswordRequest request);
 
     @GET("/api-gateway-request/users")
     Call<List<User>> getAllUsers();

@@ -3,6 +3,7 @@ package com.siemens.sl.apigateway.controller;
 import com.siemens.sl.apigateway.constants.endpoints.Endpoints;
 import com.siemens.sl.apigateway.model.*;
 import com.siemens.sl.apigateway.model.v1.ChangePasswordRequest;
+import com.siemens.sl.apigateway.model.v1.DefaultResponse;
 import com.siemens.sl.apigateway.model.v1.Group;
 import com.siemens.sl.apigateway.model.v1.User;
 import com.siemens.sl.apigateway.services.LoginService;
@@ -65,7 +66,7 @@ import java.util.List;
     }
 
     @PostMapping(Endpoints.UPDATE_PASSWORD)
-    public AddUserRequest updatePassword(@RequestBody ChangePasswordRequest request){
+    public DefaultResponse updatePassword(@RequestBody ChangePasswordRequest request){
         return userService.updatePassword(request);
     }
 }
