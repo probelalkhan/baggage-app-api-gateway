@@ -8,16 +8,21 @@ zuul:
     Peripherals:
       path: /api/peripherals/**
       url: http://localhost:8085/peripherals
-     # url: http://172.18.170.30:7004/peripherals
+      #url: http://172.18.170.30:7004/peripherals-service/peripherals
     flights:
       path: /api/flights/**
       url: http://localhost:8085/flights
-     # url: http://172.18.170.30:7004/flights
+      #url: http://172.18.170.30:7004/flights-service/flights
     TransportBags:
       path: /api/transportation/**
       url: http://localhost:8085/transportation
-      #url: http://172.18.170.30:7004/transportation
+      #url: http://172.18.170.30:7004/transportation-service/transportation
     config:
       path: /api/config/**
-      #url: http://172.18.170.30:7004/config
+      #url: http://172.18.170.30:7004/config-service/config
       url: http://localhost:8085/config
+    Statistics:
+      path: /api/statistics/**
+      #url: http://172.18.170.30:7004/statistics-service/statistics
+      url: http://localhost:8085/statistics
+
