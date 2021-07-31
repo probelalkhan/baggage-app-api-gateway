@@ -18,7 +18,7 @@ import java.util.List;
 @RestController
 //@CrossOrigin(origins = {"http://172.18.170.30:7004", "http://localhost:7004"})
 @CrossOrigin(origins = {"http://localhost:4200", "http://localhost:7004"})
-    public class AuthenticationController {
+public class AuthenticationController {
 
     @Autowired
     private LoginService loginService;
@@ -30,7 +30,7 @@ import java.util.List;
 
     @PostMapping(Endpoints.LOGIN)
     public LoginResponse login(@RequestBody AuthenticationRequest request) {
-        logger.info("Login Req: "+request);
+        logger.info("Login Req: " + request);
         LoginResponse loginResponse = loginService.getLoginResponse(request);
         logger.debug("LOGIN Request successfully processed, returning response");
         return loginResponse;
@@ -44,29 +44,39 @@ import java.util.List;
     }
 
     @PostMapping(Endpoints.ADD_USER)
-    public AddUserRequest addUser(@RequestBody AddUserRequest request){
+    public AddUserRequest addUser(@RequestBody AddUserRequest request) {
         logger.info("Add user Called " + request);
         return userService.addUser(request);
     }
 
     @GetMapping(Endpoints.USERS)
-    public List<User> users(){
+    public List<User> users() {
         logger.info("users Called ");
         return userService.getAllUsers();
     }
 
     @PostMapping(Endpoints.ADD_GROUP)
-    public Group addGroup(@RequestBody Group group){
+    public Group addGroup(@RequestBody Group group) {
         return userService.addGroup(group);
     }
 
     @GetMapping(Endpoints.GROUPS)
-    public List<Group> addGroup(){
+    public List<Group> addGroup() {
         return userService.getAllGroups();
     }
 
     @PostMapping(Endpoints.UPDATE_PASSWORD)
-    public DefaultResponse updatePassword(@RequestBody ChangePasswordRequest request){
+    public DefaultResponse updatePassword(@RequestBody ChangePasswordRequest request) {
         return userService.updatePassword(request);
+    }
+
+    @GetMapping(Endpoints.UPDATE_PASSWORD)
+    public List<Group> getAllGroups() {
+        return userService.getAllGroups();
+    }
+
+    @GetMapping(Endpoints.ROLES)
+    public List<Role> getAllRoles() {
+        return userService.getAllRoles();
     }
 }

@@ -2,6 +2,7 @@ package com.siemens.sl.apigateway.retrofit;
 
 import com.siemens.sl.apigateway.model.AddUserRequest;
 import com.siemens.sl.apigateway.model.GetUserResponse;
+import com.siemens.sl.apigateway.model.Role;
 import com.siemens.sl.apigateway.model.UserTable;
 import com.siemens.sl.apigateway.model.v1.ChangePasswordRequest;
 import com.siemens.sl.apigateway.model.v1.DefaultResponse;
@@ -34,5 +35,8 @@ public interface RemoteServices {
 
     @GET("/api-gateway-request/groups")
     Call<List<Group>> getAllGroups();
+
+    @GET("/api-gateway-request/roles")
+    Call<List<Role>> getAllRoles();
 
 }

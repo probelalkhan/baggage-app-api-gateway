@@ -2,6 +2,7 @@ package com.siemens.sl.apigateway.services;
 
 import com.siemens.sl.apigateway.model.AddUserRequest;
 import com.siemens.sl.apigateway.model.GetUserResponse;
+import com.siemens.sl.apigateway.model.Role;
 import com.siemens.sl.apigateway.model.v1.ChangePasswordRequest;
 import com.siemens.sl.apigateway.model.v1.DefaultResponse;
 import com.siemens.sl.apigateway.model.v1.Group;
@@ -126,6 +127,24 @@ public class UserService {
         } catch (Exception e) {
             logger.error(e.getMessage());
             logger.error("Get user service failed (Exception thrown)");
+        }
+        return null;
+    }
+
+    public List<Role> getAllRoles() {
+        try {
+            Response<List<Role>> response = remoteServices.getAllRoles().execute();
+            if (response.isSuccessful() &&
+                    response.body() != null) {
+                return response.body();
+            } else {
+                logger.error(response.body().toString());
+                logger.error(response.errorBody().string());
+                logger.error("Get roles service failed");
+            }
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+            logger.error("Get roles service failed (Exception thrown)");
         }
         return null;
     }
