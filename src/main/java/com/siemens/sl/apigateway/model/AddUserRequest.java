@@ -10,8 +10,9 @@ public class AddUserRequest {
     private String description;
     private String department;
     private long role_id;
+    private long group_id;
     private String password;
-    private Date password_expires_on;
+    private String password_expires_on;
     private boolean locked;
-    private Date account_expires_on;
+    private String account_expires_on;
 }
