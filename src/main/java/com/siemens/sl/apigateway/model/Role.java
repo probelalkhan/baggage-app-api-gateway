@@ -7,7 +7,7 @@ import java.util.List;
 
 @Data
 public class Role {
-    private Long id;
+    private Long role_id;
     private String name;
     private Boolean active;
 }
