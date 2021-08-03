@@ -61,18 +61,13 @@ public class AuthenticationController {
     }
 
     @GetMapping(Endpoints.GROUPS)
-    public List<Group> addGroup() {
+    public List<Group> getAllGroups() {
         return userService.getAllGroups();
     }
 
     @PostMapping(Endpoints.UPDATE_PASSWORD)
     public DefaultResponse updatePassword(@RequestBody ChangePasswordRequest request) {
         return userService.updatePassword(request);
-    }
-
-    @GetMapping(Endpoints.UPDATE_PASSWORD)
-    public List<Group> getAllGroups() {
-        return userService.getAllGroups();
     }
 
     @GetMapping(Endpoints.ROLES)
