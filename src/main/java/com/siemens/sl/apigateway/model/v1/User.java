@@ -1,5 +1,6 @@
 package com.siemens.sl.apigateway.model.v1;
 
+import com.siemens.sl.apigateway.model.Role;
 import lombok.Data;
 
 import java.util.Date;
@@ -15,4 +16,5 @@ public class User {
     private String password_expires_on;
     private boolean locked;
     private String account_expires_on;
+    private Role role;
 }
