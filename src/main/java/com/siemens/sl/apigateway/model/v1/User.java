@@ -17,4 +17,5 @@ public class User {
     private boolean locked;
     private String account_expires_on;
     private Role role;
+    private Group group;
 }
