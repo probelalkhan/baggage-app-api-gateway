@@ -4,10 +4,7 @@ import com.siemens.sl.apigateway.model.AddUserRequest;
 import com.siemens.sl.apigateway.model.GetUserResponse;
 import com.siemens.sl.apigateway.model.Role;
 import com.siemens.sl.apigateway.model.UserTable;
-import com.siemens.sl.apigateway.model.v1.ChangePasswordRequest;
-import com.siemens.sl.apigateway.model.v1.DefaultResponse;
-import com.siemens.sl.apigateway.model.v1.Group;
-import com.siemens.sl.apigateway.model.v1.User;
+import com.siemens.sl.apigateway.model.v1.*;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -38,5 +35,8 @@ public interface RemoteServices {
 
     @GET("/api-gateway-request/roles")
     Call<List<Role>> getAllRoles();
+
+    @POST("/api-gateway-request/updateloginfailed")
+    Call<DefaultResponse> updateLoginFailed(@Body User request);
 
 }

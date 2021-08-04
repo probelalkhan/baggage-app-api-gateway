@@ -50,6 +50,8 @@ public class LoginService {
         } catch (AuthenticationException exception) {
             //Password match failed
             logger.error("AuthenticationException occurred");
+            //update failed login
+            userService.updateLoginFailure(user);
             throw new GenericException(HttpStatus.UNAUTHORIZED, 401, 20, null);
         }
 
