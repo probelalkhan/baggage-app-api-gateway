@@ -3,10 +3,7 @@ package com.siemens.sl.apigateway.services;
 import com.siemens.sl.apigateway.model.AddUserRequest;
 import com.siemens.sl.apigateway.model.GetUserResponse;
 import com.siemens.sl.apigateway.model.Role;
-import com.siemens.sl.apigateway.model.v1.ChangePasswordRequest;
-import com.siemens.sl.apigateway.model.v1.DefaultResponse;
-import com.siemens.sl.apigateway.model.v1.Group;
-import com.siemens.sl.apigateway.model.v1.User;
+import com.siemens.sl.apigateway.model.v1.*;
 import com.siemens.sl.apigateway.retrofit.RemoteServices;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -145,6 +142,24 @@ public class UserService {
         } catch (Exception e) {
             logger.error(e.getMessage());
             logger.error("Get roles service failed (Exception thrown)");
+        }
+        return null;
+    }
+
+    public DefaultResponse updateLoginFailure(User request) {
+        try {
+            Response<DefaultResponse> response = remoteServices.updateLoginFailed(request).execute();
+            if (response.isSuccessful() &&
+                    response.body() != null) {
+                return response.body();
+            } else {
+                logger.error(response.body().toString());
+                logger.error(response.errorBody().string());
+                logger.error("Update Login Failed service failed");
+            }
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+            logger.error("Update Login Failed service failed (Exception thrown)");
         }
         return null;
     }

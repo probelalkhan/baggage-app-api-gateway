@@ -16,6 +16,8 @@ public class User {
     private String password_expires_on;
     private boolean locked;
     private String account_expires_on;
+    private String first_failed_login;
+    private Long failed_login;
     private Role role;
     private Group group;
 }
